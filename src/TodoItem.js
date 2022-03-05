@@ -2,6 +2,13 @@ import React from "react";
 import './TodoItem.css';
 
 function TodoItem(props) {
+    const onComplete = () => {
+        alert('Ya Completaste el to-do ' + props.text);
+    };
+    const onDelate = () => {
+        alert('Borraste el to-do '+ props.text);
+    };
+
     return (
         <li className="TodoItem">
             <span className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}>
