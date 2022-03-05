@@ -7,7 +7,7 @@ import { TodoItem } from './TodoItem';
 // import './App.css';
 
 const todos = [
-  {text: 'Cortar cebolla', completed: false },
+  {text: 'Cortar cebolla', completed: true },
   {text: 'Tomar el curso de React JS', completed: false },
   {text: 'Llorar', completed: false },
 ]
@@ -16,12 +16,15 @@ function App() {
   return (
     <React.Fragment>
       <TodoCounter />
-
       <TodoSearch />
 
       <TodoList>
         {todos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} />
+          <TodoItem 
+            key={todo.text} 
+            text={todo.text}
+            completed = {todo.completed} 
+          />
         ))}
       </TodoList>
 
