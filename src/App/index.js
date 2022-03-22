@@ -1,9 +1,9 @@
 import React from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodoItem';
 // import './App.css';
 
 const defaultTodos = [
@@ -32,7 +32,7 @@ function App() {
     });
   }
 
-  const completeTodos = (text) => {
+  const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
@@ -63,7 +63,7 @@ function App() {
             key={todo.text} 
             text={todo.text}
             completed = {todo.completed} 
-            onComplete={() => completeTodos(todo.text)}
+            onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
         ))}
