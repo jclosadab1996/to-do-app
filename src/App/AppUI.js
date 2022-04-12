@@ -7,6 +7,8 @@ import { TodoItem } from '../TodoItem';
 // import './App.css';
 
 function AppUI({
+    loading,
+    error,
     totalTodos,
     completedTodos,
     searchValue,
@@ -17,20 +19,24 @@ function AppUI({
 }) {
     return (
         <React.Fragment>
-            <TodoCounter 
+            <TodoCounter
                 total={totalTodos}
                 completed={completedTodos}
             />
-            <TodoSearch 
+            <TodoSearch
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
             />
             <TodoList>
+                {error && <p>Desesperateee....</p>}
+                {loading && <p>Estamos cargando, no desesperes....</p>}
+                {(!loading && !searchedTodos.lenght) && <p>Crea tu primer To do</p>}
+
                 {searchedTodos.map(todo => (
-                    <TodoItem 
-                        key={todo.text} 
+                    <TodoItem
+                        key={todo.text}
                         text={todo.text}
-                        completed = {todo.completed} 
+                        completed = {todo.completed}
                         onComplete={() => completeTodo(todo.text)}
                         onDelete={() => deleteTodo(todo.text)}
                     />
